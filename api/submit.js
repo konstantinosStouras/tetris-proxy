@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
   // 💡✅ Always set CORS headers for all requests (not just OPTIONS)
-  res.setHeader("Access-Control-Allow-Origin", "https://www.stouras.com"); // ← I had '*' earlier but this is safer
+  res.setHeader("Access-Control-Allow-Origin", "https://www.stouras.com");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
@@ -9,14 +9,16 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  // Same as before: reject anything that's not POST
+  // Reject non-POST requests
   if (req.method !== "POST") {
     return res.status(405).send("Method Not Allowed");
   }
 
   try {
+    // 🔍 ✅ Log the exact payload from the Tetris app
+    console.log("Incoming data:", JSON.stringify(req.body, null, 2));
+
     const appsScriptUrl = 'https://script.google.com/macros/s/AKfycbw1o9_4HNeLK7dfPXPazvdN7R_k_hj64867XlZWy3QJaGnAr2Eo4BxKqpNw7l_fL9EU7w/exec';
-	
 
     const response = await fetch(appsScriptUrl, {
       method: "POST",
@@ -31,4 +33,3 @@ export default async function handler(req, res) {
     return res.status(500).send("Proxy error: " + err.message);
   }
 }
-//test
