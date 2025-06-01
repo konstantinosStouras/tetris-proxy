@@ -1,6 +1,6 @@
-# 🧩 Knapsack Proxy
+# 🧩 Tetris Proxy
 
-A minimal Vercel proxy to bypass CORS and forward data from a React frontend (e.g. stouras.com) to a Google Apps Script Web App.
+sdfsdfsd
 
 ## 🛠 Deploy with Vercel
 
