@@ -18,7 +18,7 @@ export default async function handler(req, res) {
     // 🔍 ✅ Log the exact payload from the Tetris app
     console.log("Incoming data:", JSON.stringify(req.body, null, 2));
 
-    const appsScriptUrl = 'https://script.google.com/macros/s/AKfycbzVLODVZRu9UE-R0V4mWyk1iRk564tiO2rOHVvdIUgraigAlLoWLZY61BRWULld3B-0wQ/exec';
+    const appsScriptUrl = 'https://script.google.com/macros/s/AKfycbyxrlALgmKIwvMUjFEDnR_Xf9QEugWCShwP-0u9EXFHgC1RPs0IX-pE3nt-Ngb2F7rNWA/exec';
 
     const response = await fetch(appsScriptUrl, {
       method: "POST",
